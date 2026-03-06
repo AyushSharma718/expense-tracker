@@ -31,81 +31,98 @@ const Register = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 px-4">
+return (
+  <div className="min-h-screen flex bg-gray-50">
+
+    {/* LEFT PANEL */}
+    <div className="hidden md:flex w-1/2 bg-slate-900 text-white flex-col justify-between p-16">
       
-      {/* Card */}
-      <div className="w-full max-w-md bg-white/80 dark:bg-gray-800/80 backdrop-blur-2xl rounded-3xl shadow-2xl p-8">
-        
+      <div>
+        <h1 className="text-2xl font-semibold tracking-tight">
+          ExpenseTracker
+        </h1>
+      </div>
+
+      <div className="max-w-md">
+        <h2 className="text-4xl font-semibold leading-tight">
+          Start managing your money smarter.
+        </h2>
+
+        <p className="mt-6 text-gray-300 text-lg">
+          Create an account to track expenses, monitor spending habits,
+          and gain insights into your finances.
+        </p>
+      </div>
+
+      <div className="text-sm text-gray-400">
+        © {new Date().getFullYear()} ExpenseTracker
+      </div>
+
+    </div>
+
+    {/* RIGHT PANEL */}
+    <div className="flex w-full md:w-1/2 items-center justify-center px-6">
+
+      <div className="w-full max-w-md">
+
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-extrabold text-gray-800 dark:text-white">
-            Create your account 🚀
-          </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-2">
-            Start tracking your expenses smarter
+        <div className="mb-8">
+          <h2 className="text-3xl font-semibold text-gray-900">
+            Create an account
+          </h2>
+
+          <p className="text-gray-500 mt-2">
+            Enter your details to get started
           </p>
         </div>
 
         {/* Form */}
-        <form onSubmit={submitHandler} className="space-y-5">
-          
+        <form onSubmit={submitHandler} className="space-y-6">
+
           {/* Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Full Name
             </label>
+
             <input
               type="text"
               placeholder="Ayush Sharma"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="
-                w-full px-4 py-3 rounded-xl border
-                bg-white dark:bg-gray-700
-                text-gray-800 dark:text-white
-                focus:outline-none focus:ring-2 focus:ring-indigo-500
-              "
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
               required
             />
           </div>
 
           {/* Email */}
           <div>
-            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Email
             </label>
+
             <input
               type="email"
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="
-                w-full px-4 py-3 rounded-xl border
-                bg-white dark:bg-gray-700
-                text-gray-800 dark:text-white
-                focus:outline-none focus:ring-2 focus:ring-indigo-500
-              "
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
               required
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Password
             </label>
+
             <input
               type="password"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="
-                w-full px-4 py-3 rounded-xl border
-                bg-white dark:bg-gray-700
-                text-gray-800 dark:text-white
-                focus:outline-none focus:ring-2 focus:ring-indigo-500
-              "
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900 transition"
               required
             />
           </div>
@@ -114,30 +131,29 @@ const Register = () => {
           <button
             type="submit"
             disabled={loading}
-            className="
-              w-full py-3 rounded-xl font-semibold text-white
-              bg-gradient-to-r from-indigo-600 to-purple-600
-              hover:from-indigo-700 hover:to-purple-700
-              transition disabled:opacity-60
-            "
+            className="w-full py-3 bg-slate-900 text-white rounded-lg font-medium hover:bg-black transition duration-200 disabled:opacity-60"
           >
-            {loading ? "Creating account..." : "Sign Up"}
+            {loading ? "Creating account..." : "Create account"}
           </button>
+
         </form>
 
         {/* Footer */}
-        <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
+        <p className="text-sm text-gray-500 mt-8">
           Already have an account?{" "}
           <span
             onClick={() => navigate("/login")}
-            className="text-indigo-600 dark:text-indigo-400 font-semibold cursor-pointer hover:underline"
+            className="text-slate-900 font-medium cursor-pointer hover:underline"
           >
-            Login
+            Sign in
           </span>
         </p>
+
       </div>
+
     </div>
-  );
+  </div>
+);
 };
 
 export default Register;
