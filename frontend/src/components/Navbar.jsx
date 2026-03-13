@@ -10,31 +10,32 @@ const Navbar = () => {
   };
 
   const linkClass = ({ isActive }) =>
-    `px-3 py-2 rounded-lg text-sm font-medium transition ${
+    `px-3 py-2 text-sm font-medium transition ${
       isActive
-        ? "text-indigo-400"
-        : "text-gray-300 hover:text-white"
+        ? "text-slate-900 dark:text-white"
+        : "text-gray-500 hover:text-slate-900 dark:text-gray-400 dark:hover:text-white"
     }`;
 
   return (
-    <nav className="w-full bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
-        {/* LEFT: LOGO + LINKS */}
+    <nav className="w-full bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+
+        {/* LEFT SIDE */}
         <div className="flex items-center gap-8">
-          {/* Logo */}
+
+          {/* LOGO */}
           <div
-            className="flex items-center gap-2 cursor-pointer"
             onClick={() => navigate("/dashboard")}
+            className="flex items-center gap-2 cursor-pointer"
           >
-            <span className="text-2xl font-bold text-indigo-500">₹</span>
-            <span className="text-lg font-semibold text-white">
-              Expense Tracker
+            <span className="text-xl font-bold text-indigo-600">₹</span>
+            <span className="text-sm font-semibold text-gray-900 dark:text-white">
+              ExpenseTracker
             </span>
           </div>
 
-          {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-2">
+          {/* NAV LINKS */}
+          <div className="hidden md:flex items-center gap-6">
             <NavLink to="/dashboard" className={linkClass}>
               Dashboard
             </NavLink>
@@ -47,18 +48,21 @@ const Navbar = () => {
               Monthly
             </NavLink>
           </div>
+
         </div>
 
-        {/* RIGHT: ACTIONS */}
+        {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
+
           <DarkModeToggle />
 
           <button
             onClick={logout}
-            className="px-4 py-2 rounded-xl bg-red-500 text-white text-sm font-semibold hover:bg-red-600 transition"
+            className="text-sm font-medium text-red-600 hover:text-red-700 transition"
           >
             Logout
           </button>
+
         </div>
       </div>
     </nav>
